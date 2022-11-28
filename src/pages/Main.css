@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.f-head {
+  max-width: 100%;
+  max-height: 10%;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+}
+.f-head .pagename {
+  width: 160px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 10px;
+  text-align: center;
+  background-color: pink;
+}
+
+.f-head .object {
+  width: 130px;
+  background-color: yellow;
+}
+
+.f-head .object .function {
+  display: flex;
+  font-size: 15px;
+  margin: 0 10px;
+  background-color: pink;
+  text-align: center;
+}
+
+* > .flex-ai-c {
+  align-items: center;
+}
