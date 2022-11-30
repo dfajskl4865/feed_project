@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+ul,
+li {
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.f-head {
+  max-width: 100%;
+  max-height: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.f-head .pagename {
+  width: 300px;
+  font-weight: bold;
+  font-size: 40px;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.f-head .object {
+  width: 160px;
+  float: right;
+  position: relative;
+}
+
+.f-head .object .function {
+  display: flex;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.f-head .object .function ul {
+  display: flex;
+}
+
+.f-head .object .function li {
+  padding-right: 15px;
+}
+.f-head .object .function li a {
+  font-size: 15px;
+}
+
+.con {
+  width: 100%;
+  height: 920px;
+  display: flex;
+}
+
+.con > .menu {
+  width: 25%;
+  height: 920px;
+  background-color: aqua;
+  position: relative;
+}
+
+.con > .menu > .menu-bar {
+  width: 200px;
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.con > .menu > .menu-bar ul {
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.con > .menu > .menu-bar li {
+  margin-left: 5px;
+}
+
+.con > .feed {
+  width: 75%;
+  height: 920px;
+  background-color: pink;
+  position: relative;
+}
+
+.con > .feed > .feed-bar {
+  width: 100%;
+  height: 60px;
+  background-color: plum;
+  position: relative;
+  display: flex;
+}
+.con > .feed > .feed-bar > p {
+  margin-top: 15px;
+  margin-left: 15px;
+}

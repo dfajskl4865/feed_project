@@ -3,36 +3,115 @@
   padding: 0px;
   margin: 0px;
 }
+ul,
+li {
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
 
 .f-head {
   max-width: 100%;
   max-height: 10%;
-  background-color: aqua;
   display: flex;
   justify-content: space-between;
 }
 .f-head .pagename {
-  width: 160px;
+  width: 300px;
   font-weight: bold;
-  font-size: 25px;
-  margin-left: 10px;
+  font-size: 40px;
+  margin-left: 0px;
   text-align: center;
-  background-color: pink;
 }
 
 .f-head .object {
-  width: 130px;
-  background-color: yellow;
+  width: 160px;
+  float: right;
+  position: relative;
 }
 
 .f-head .object .function {
   display: flex;
   font-size: 15px;
   margin: 0 10px;
-  background-color: pink;
-  text-align: center;
 }
 
-* > .flex-ai-c {
+.f-head .object .function ul {
+  display: flex;
+}
+
+.f-head .object .function li {
+  padding-right: 15px;
+}
+.f-head .object .function li a {
+  font-size: 15px;
+}
+
+.f-bar {
+  width: 100%;
+  height: 70px;
+  margin-top: 50px;
+}
+
+.f-bar .feed {
+  width: 500px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.f-bar .feed ul {
+  display: flex;
+  height: 60px;
+}
+
+.f-bar .feed li {
+  display: flex;
+  text-align: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.f-bar .feed li a {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.f-bar .feed li > .dog {
+  width: 48px;
+  height: 48px;
+}
+
+.f-bar .feed li > .cat {
+  width: 59px;
+  height: 59px;
+}
+
+.con {
+  width: 700px;
+  height: 550px;
+  background-color: #898989;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.Recommendation {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 30px;
+}
+.coni {
+  width: 550px;
+  height: 430px;
+  background-color: #797979;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  text-align: center;
 }
