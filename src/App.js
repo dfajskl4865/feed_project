@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Main from "./pages/Main";
 import Dogdry from "./pages/Dogdry";
+import Detail from "./pages/Detail";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -98,6 +99,7 @@ function App() {
           element={<카카오데이터받는곳 />}
         />
         <Route exact path="/dogdry" element={<Dogdry />} />
+        <Route exact path="/detail/:id" element={<Detail />} />
       </Routes>
     </StoreContext.Provider>
   );

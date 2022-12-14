@@ -75,8 +75,9 @@ a {
 .con > .menu {
   width: 20%;
   height: 920px;
-  background-color: aqua;
   position: relative;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .con > .menu > .menu-bar {
@@ -105,43 +106,53 @@ a {
 .con > .feed {
   width: 80%;
   height: 920px;
-  background-color: pink;
   position: relative;
 }
 
 .con > .feed > .feed-bar {
   width: 100%;
-  height: 60px;
-  background-color: plum;
+  height: 40px;
   position: relative;
   display: flex;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
 }
 .con > .feed > .feed-bar > p {
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .con > .feed > .feed-con {
   width: 100%;
-  height: 860px;
-  background-color: bisque;
-  padding: 50px;
+  height: 880px;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 .con > .feed > .feed-con > ul > li {
   width: calc(100% / 5);
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.con > .feed > .feed-con > ul > li > .img-box {
-  width: 150px;
-  height: 250px;
   display: flex;
+  margin-bottom: 20px;
 }
 
-.con > .feed > .feed-con > ul > li > .feed-name {
-  width: 150px;
-  height: 10px;
-  text-align: center;
+.con > .feed > .feed-con > ul > li > a {
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+.con > .feed > .feed-con > ul > li > a:hover {
+  box-shadow: 1px 1px 15px black;
+}
+
+.con > .feed > .feed-con > ul > li > a > .img-box {
+  width: 220px;
+  height: 220px;
+}
+
+.con > .feed > .feed-con > ul > li > a > .img-box > img {
+  width: 220px;
+  height: 220px;
+}
+
+.con > .feed > .feed-con > ul > li > a > p {
+  text-align: left;
 }

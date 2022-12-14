@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Dogdry.css";
 import { StoreContext } from "../App";
 import { Link } from "react-router-dom";
+import Dogdrydata from "./Dogdry_data.js";
+
+const List = (props) => {
+  return (
+    <ul>
+      <li>
+        <Link href={"detail/" + props.index}>
+          <div>
+            <img src={props.Dogdrydata.img} />
+          </div>
+          <p>{props.Dogdrydata.title}</p>
+          <p>{props.Dogdrydata.price}</p>
+        </Link>
+      </li>
+    </ul>
+  );
+};
 
 function Dry() {
   const { loginUser } = React.useContext(StoreContext);
+
+  let [dryfeed, setDryfeed] = useState(Dogdrydata);
 
   return (
     <>
@@ -28,12 +47,24 @@ function Dry() {
         <div className="menu">
           <div className="menu-bar">
             <ul>
-              <p>강아지</p>
-              <li>건식 사료</li>
-              <li>습식 사료</li>
-              <p>고양이</p>
-              <li>건식 사료</li>
-              <li>습식 사료</li>
+              <p>
+                <Link to="/Dogdry">강아지</Link>
+              </p>
+              <li>
+                <Link to="/Dogdry">건식 사료</Link>
+              </li>
+              <li>
+                <Link to="/Dogdry">습식 사료</Link>
+              </li>
+              <p>
+                <Link to="/Dogdry">고양이</Link>
+              </p>
+              <li>
+                <Link to="/Dogdry">건식 사료</Link>
+              </li>
+              <li>
+                <Link to="/Dogdry">습식 사료</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -42,32 +73,9 @@ function Dry() {
             <p>강아지 / 건식 사료</p>
           </div>
           <div className="feed-con">
-            <ul className="row">
-              <li className="cell">
-                <Link
-                  to={
-                    "https://www.coupang.com/vp/products/78748094?itemId=253999635&vendorItemId=3618396585&q=%EA%B1%B4%EC%A1%B0+%EC%82%AC%EB%A3%8C&itemsCount=36&searchId=08d811d7843d4552b011c16f3d25e18c&rank=1&isAddedCart="
-                  }
-                >
-                  <div className="img-box">
-                    <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/352159540286419-2bcac4bf-f726-45f5-8b01-d461cbcdb30f.jpg"></img>
-                  </div>
-                  <div className="feed-name">ANF 6FREE red 소고기 건식사료</div>
-                </Link>
-              </li>
-              <li className="cell">
-                <Link
-                  to={
-                    "https://www.coupang.com/vp/products/78748094?itemId=253999635&vendorItemId=3618396585&q=%EA%B1%B4%EC%A1%B0+%EC%82%AC%EB%A3%8C&itemsCount=36&searchId=08d811d7843d4552b011c16f3d25e18c&rank=1&isAddedCart="
-                  }
-                >
-                  <div className="img-box">
-                    <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/352159540286419-2bcac4bf-f726-45f5-8b01-d461cbcdb30f.jpg"></img>
-                  </div>
-                  <div className="feed-name">ANF 6FREE red 건식사료</div>
-                </Link>
-              </li>
-            </ul>
+            {dryfeed.map((products, index) => {
+              return <List dryfeed={dryfeed[products]} i={index} />;
+            })}
           </div>
         </div>
       </div>
