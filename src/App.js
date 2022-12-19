@@ -7,7 +7,9 @@ import Join from "./pages/Join";
 import Main from "./pages/Main";
 import Dogdry from "./pages/Dogdry";
 import Detail from "./pages/Detail";
+import Dogdrydata from "./pages/Dogdry_data";
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -83,6 +85,8 @@ function LLogin() {
 
 function App() {
   const [loginUser, setLoginUser] = React.useState({});
+  let [dryfeed, setDryfeed] = useState(Dogdrydata);
+
   return (
     <StoreContext.Provider
       value={{
@@ -92,14 +96,20 @@ function App() {
       <Routes>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/join" element={<Join />} />
-        <Route exact path="/main" element={<Main />} />
+        <Route exact path="/" element={<Main />} />
         <Route
           exact
           path="http://localhost:3000/oauth/callback/kakao"
           element={<카카오데이터받는곳 />}
         />
         <Route exact path="/dogdry" element={<Dogdry />} />
-        <Route exact path="/detail/:id" element={<Detail />} />
+
+        <Route exact path="/detail" element={<Detail />} />
+        <Route
+          exact
+          path="/detail/:id"
+          element={<Detail dryfeed={dryfeed} />}
+        />
       </Routes>
     </StoreContext.Provider>
   );

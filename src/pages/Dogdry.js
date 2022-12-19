@@ -6,17 +6,17 @@ import Dogdrydata from "./Dogdry_data.js";
 
 const List = (props) => {
   return (
-    <ul>
-      <li>
-        <Link href={"detail/" + props.index}>
-          <div>
-            <img src={props.Dogdrydata.img} />
+    <div className="conti row">
+      <div className="cell nav">
+        <Link to={"detail/" + props.index}>
+          <div className="img-box">
+            <img src={props.dryfeed.img} width="220px" height="220px" />
           </div>
-          <p>{props.Dogdrydata.title}</p>
-          <p>{props.Dogdrydata.price}</p>
+          <p className="title">{props.dryfeed.title}</p>
+          <p className="price">{props.dryfeed.price}</p>
         </Link>
-      </li>
-    </ul>
+      </div>
+    </div>
   );
 };
 
@@ -73,8 +73,8 @@ function Dry() {
             <p>강아지 / 건식 사료</p>
           </div>
           <div className="feed-con">
-            {dryfeed.map((products, index) => {
-              return <List dryfeed={dryfeed[products]} i={index} />;
+            {Dogdrydata.map((products, index) => {
+              return <List dryfeed={products} index={index} key={index} />;
             })}
           </div>
         </div>

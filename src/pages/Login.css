@@ -1,0 +1,17 @@
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.con > .signInBox {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 130px 40px 100px 40px;
+}
+
+.con > .signInBox > input {
+  margin-bottom: 6px;
+  font-size: large;
+}

@@ -123,32 +123,3 @@ a {
   padding-top: 15px;
   padding-left: 15px;
 }
-
-.conti > .nav {
-  width: calc(100% / 5);
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.conti > .nav > a {
-  cursor: pointer;
-  border: 1px solid #fff;
-}
-
-.conti > .nav > a:hover {
-  box-shadow: 1px 1px 15px black;
-}
-
-.conti > .nav > a > .img-box {
-  width: 220px;
-  height: 220px;
-}
-
-.conti > .nav > a > .img-box > img {
-  width: 220px;
-  height: 220px;
-}
-
-.conti > .nav > a > p {
-  text-align: left;
-}
