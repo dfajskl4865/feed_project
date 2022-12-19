@@ -57,10 +57,10 @@ function Detail(props) {
           </div>
           <div className="feed-con">
             <div className="row">
-              <div>
-                <img src={`/${id}.png`} width="100%" />
+              <div className="imgbox cell">
+                <img src={props.dryfeed[id].img} width="80%" />
               </div>
-              <div>
+              <div className="imgbox cell">
                 <p>{props.dryfeed[id].title}</p>
                 <p>{props.dryfeed[id].price}</p>
                 <button>

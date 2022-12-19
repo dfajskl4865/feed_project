@@ -124,31 +124,31 @@ a {
   padding-left: 15px;
 }
 
-.conti > .nav {
+ul > .nav {
   width: calc(100% / 5);
   display: flex;
   margin-bottom: 20px;
 }
 
-.conti > .nav > a {
+ul > .nav > a {
   cursor: pointer;
   border: 1px solid #fff;
 }
 
-.conti > .nav > a:hover {
+ul > .nav > a:hover {
   box-shadow: 1px 1px 15px black;
 }
 
-.conti > .nav > a > .img-box {
+ul > .nav > a > .img-box {
   width: 220px;
   height: 220px;
 }
 
-.conti > .nav > a > .img-box > img {
+ul > .nav > a > .img-box > img {
   width: 220px;
   height: 220px;
 }
 
-.conti > .nav > a > p {
+ul > .nav > a > p {
   text-align: left;
 }

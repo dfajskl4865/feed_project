@@ -122,4 +122,13 @@ a {
   height: 880px;
   padding-top: 15px;
   padding-left: 15px;
+  display: block;
+}
+
+.con > .feed > .feed-con > .imgbox {
+  width: 25%;
+}
+
+.con > .feed > .feed-con > .textbox {
+  width: 25%;
 }

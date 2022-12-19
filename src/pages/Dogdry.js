@@ -6,9 +6,9 @@ import Dogdrydata from "./Dogdry_data.js";
 
 const List = (props) => {
   return (
-    <div className="conti row">
+    <div className="row">
       <div className="cell nav">
-        <Link to={"detail/" + props.index}>
+        <Link to={"/detail/" + props.index}>
           <div className="img-box">
             <img src={props.dryfeed.img} width="220px" height="220px" />
           </div>
@@ -28,7 +28,9 @@ function Dry() {
   return (
     <>
       <div className="f-head">
-        <div className="pagename">사료커뮤니티</div>
+        <div className="pagename">
+          <Link to={"/"}>사료커뮤니티</Link>
+        </div>
         <div className="object">
           <div className="function">
             <ul>
