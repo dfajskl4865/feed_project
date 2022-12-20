@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+
 const mysql = require("mysql2");
+const { Form } = require("react-router-dom");
 const db = mysql.createPoolCluster();
 
 const app = express();
@@ -49,6 +51,18 @@ function dbstart(query) {
   });
 }
 
+app.get("/", async (req, res) => {
+  const 데이터 = await dbstart("SELECT * FROM user");
+
+  console.log(데이터);
+
+  res.send("여기로 옵니다!!");
+});
+
+app.get("/user", (req, res) => {
+  res.send(req.session.loginUser);
+});
+
 app.post("/login", async (req, res) => {
   const { id, pw } = req.body;
 
@@ -74,9 +88,6 @@ app.post("/login", async (req, res) => {
   if (user.length === 0) {
     result.code = "fail";
     result.message = "아이디가 존재하지 않습니다";
-  }
-
-  if (result.code === "fail") {
     res.send(result);
     return;
   }
@@ -115,9 +126,6 @@ app.post("/join", async (req, res) => {
   if (user.length > 0) {
     result.code = "fail";
     result.message = "이미 동일한 아이디가 존재합니다";
-  }
-
-  if (result.code === "fail") {
     res.send(result);
     return;
   }
@@ -125,6 +133,81 @@ app.post("/join", async (req, res) => {
   await dbstart(
     `INSERT INTO user(id,password,nickname) VALUES('${id}','${pw}','${nickname}')`
   );
+
+  res.send(result);
+});
+
+app.get("/article_row", async (req, res) => {
+  const { id } = req.query;
+
+  const reply_query = `SELECT * FROM reply WHERE article_seq = '${id}'`;
+
+  const reply = await dbstart(reply_query);
+
+  res.send({
+    reply: reply,
+  });
+});
+
+app.get("/article", async (req, res) => {
+  const query = `SELECT * FROM article , user WHERE article.user_seq = user.seq`;
+
+  const article = await dbstart(query);
+  res.send(article);
+});
+
+app.post("/article", async (req, res) => {
+  const { title, body } = req.body;
+  const { loginUser } = req.session;
+
+  const result = {
+    code: "success",
+    message: "작성되었습니다",
+  };
+
+  if (title === "") {
+    result.code = "fail";
+    result.message = "제목을 작성해주세요";
+  }
+
+  if (body === "") {
+    result.code = "fail";
+    result.message = "내용을 작성해주세요";
+  }
+
+  if (result.code === "fail") {
+    res.send(result);
+    return;
+  }
+
+  const query = `INSERT INTO article(title,body,user_seq) VALUES('${title}','${body}','${loginUser.seq}')`;
+  await dbstart(query);
+  res.send(result);
+});
+
+app.post("/reply", async (req, res) => {
+  const { replyText, id } = req.body;
+  const { loginUser } = req.session;
+
+  const result = {
+    code: "success",
+    message: "댓글이 작성되었습니다",
+  };
+
+  if (replyText === "") {
+    result.code = "errer";
+    result.message = "댓글을 입력해주세요";
+  }
+
+  if (result.code === "errer") {
+    res.send(result);
+    return;
+  }
+
+  const query = `INSERT INTO reply(body,article_seq,user_seq,user_nickname) VALUES('${replyText}','${id}','${loginUser.seq}','${loginUser.nickname}')`;
+
+  console.log(query);
+  await dbstart(query);
 
   res.send(result);
 });

@@ -76,10 +76,9 @@ a {
 }
 
 .con > .menu > .menu-bar {
-  width: 200px;
+  width: 150px;
   height: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 45px;
 }
 
 .con > .menu > .menu-bar ul {
@@ -90,7 +89,7 @@ a {
 }
 
 .con > .menu > .menu-bar ul > p {
-  margin-bottom: 5px;
+  margin-bottom: 9px;
 }
 
 .con > .menu > .menu-bar li {

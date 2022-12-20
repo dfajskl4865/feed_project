@@ -125,10 +125,47 @@ a {
   display: block;
 }
 
-.con > .feed > .feed-con > .imgbox {
-  width: 25%;
+.wrap {
+  padding: 24px;
 }
 
-.con > .feed > .feed-con > .textbox {
-  width: 25%;
+.body-wrap {
+  padding: 24px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.imgbox {
+  width: 50%;
+}
+
+.textbox {
+  width: 50%;
+}
+
+.reply {
+  border-top: 1px solid #bdbdbd;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  border: 1px solid #bdbdbd;
+}
+
+textarea {
+  padding: 12px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  min-height: 200px;
+}
+
+.blue-button {
+  color: #fff;
+  background-color: #2185d0;
+  padding: 12px;
+  margin-top: 12px;
 }

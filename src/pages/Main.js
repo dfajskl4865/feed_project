@@ -10,7 +10,9 @@ function Main() {
   return (
     <>
       <div className="f-head">
-        <div className="pagename">사료커뮤니티</div>
+        <div className="pagename">
+          <Link to="/">사료커뮤니티</Link>
+        </div>
         <div className="object">
           <div className="function">
             <ul>
@@ -40,7 +42,10 @@ function Main() {
                 className="cat"
                 src="https://st4.depositphotos.com/18494398/39984/v/450/depositphotos_399848838-stock-illustration-cat-black-silhouette-illustration-isolated.jpg"
               ></img>
-              <Link to="/Dogdry">고양이 사료</Link>
+              <Link to="/Catdry">고양이 사료</Link>
+            </li>
+            <li>
+              <Link to="/Sharing_article">커뮤니티</Link>
             </li>
           </ul>
         </div>

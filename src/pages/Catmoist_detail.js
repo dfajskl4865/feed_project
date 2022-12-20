@@ -1,35 +1,17 @@
 import React, { useState } from "react";
-import "./Dogdry.css";
 import { StoreContext } from "../App";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Dogdrydata from "./Dogdry_data.js";
 
-const List = (props) => {
-  return (
-    <div className="row">
-      <div className="cell nav">
-        <Link to={"/dogdrydetail/" + props.index}>
-          <div className="img-box">
-            <img src={props.dogdry.img} width="220px" height="220px" />
-          </div>
-          <p className="title">{props.dogdry.title}</p>
-          <p className="price">{props.dogdry.price}</p>
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-function Dry() {
+function Dogdrydetail(props) {
   const { loginUser } = React.useContext(StoreContext);
 
-  let [dogdry, setDogdry] = useState(Dogdrydata);
-
+  let { id } = useParams();
   return (
     <>
       <div className="f-head">
         <div className="pagename">
-          <Link to={"/"}>사료커뮤니티</Link>
+          <Link to="/">사료커뮤니티</Link>
         </div>
         <div className="object">
           <div className="function">
@@ -75,12 +57,21 @@ function Dry() {
         </div>
         <div className="feed">
           <div className="feed-bar">
-            <p>강아지 / 건식 사료</p>
+            <p>고양이 / 습식 사료</p>
           </div>
           <div className="feed-con">
-            {Dogdrydata.map((products, index) => {
-              return <List dogdry={products} index={index} key={index} />;
-            })}
+            <div className="row">
+              <div className="imgbox cell">
+                <img src={props.catmoist[id].img} width="80%" />
+              </div>
+              <div className="imgbox cell">
+                <p>{props.catmoist[id].title}</p>
+                <p>{props.catmoist[id].price}</p>
+                <button>
+                  <Link to={props.catmoist[id].site}>주문하기</Link>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -88,4 +79,4 @@ function Dry() {
   );
 }
 
-export default Dry;
+export default Dogdrydetail;
