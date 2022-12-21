@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
 }
-.con > .from > .sitename {
+.con > .from > a > .sitename {
   text-align: center;
   font-size: 50px;
 }

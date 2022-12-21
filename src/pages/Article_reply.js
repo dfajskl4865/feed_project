@@ -9,7 +9,7 @@ function Article_reply() {
   const [article, setArticle] = React.useState({});
   const [reply, setReply] = React.useState([]);
 
-  const 게시판상세정보가져오기 = async () => {
+  const Bulletinboard = async () => {
     await axios({
       url: "http://localhost:4000/article_row",
       params: {
@@ -22,15 +22,15 @@ function Article_reply() {
   };
 
   React.useEffect(() => {
-    게시판상세정보가져오기();
+    Bulletinboard();
   }, []);
 
   const [replyText, setReplyText] = React.useState("");
-  const 댓글정보저장 = (event) => {
+  const Savecomments = (event) => {
     setReplyText(event.target.value);
   };
 
-  const 댓글쓰기 = async () => {
+  const writing = async () => {
     await axios({
       url: "http://localhost:4000/reply",
       method: "POST",
@@ -59,8 +59,8 @@ function Article_reply() {
         </div>
 
         <form className="ui-reply-form">
-          <textarea onChange={댓글정보저장}></textarea>
-          <button type="button" className="ui-blue-button" onClick={댓글쓰기}>
+          <textarea onChange={Savecomments}></textarea>
+          <button type="button" className="ui-blue-button" onClick={writing}>
             댓글쓰기
           </button>
         </form>

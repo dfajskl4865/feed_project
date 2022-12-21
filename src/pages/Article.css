@@ -44,7 +44,7 @@ button {
 }
 
 .ui-green-button {
-  background-color: #21ba45;
+  background-color: black;
   color: #fff;
   font-weight: bold;
   padding: 8px 22px;
@@ -85,4 +85,8 @@ textarea {
   background-color: #2185d0;
   padding: 12px;
   margin-top: 12px;
+}
+
+.btn {
+  float: right;
 }

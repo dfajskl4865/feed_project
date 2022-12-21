@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
 }
-.con > .from > .sitename {
+
+.con > .from > a > .sitename {
   text-align: center;
   font-size: 50px;
 }
@@ -46,5 +47,15 @@
   border: none;
   font-size: large;
   cursor: pointer;
+  border: 1px solid black;
+}
+
+.kakaobtn {
+  background-color: #fede22;
+  cursor: pointer;
+  border-radius: 45px;
+  border: none;
+  height: 40px;
+  font-size: large;
   border: 1px solid black;
 }

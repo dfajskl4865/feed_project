@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import "./join.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
@@ -42,7 +43,9 @@ function Join() {
   return (
     <div className="con">
       <form action="" className="from">
-        <p className="sitename">사료커뮤니티</p>
+        <Link to="/">
+          <p className="sitename">사료커뮤니티</p>
+        </Link>
         <div className="joinbox">
           <p>아이디</p>
           <input

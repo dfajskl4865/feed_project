@@ -123,31 +123,31 @@ a {
   padding-left: 15px;
 }
 
-ul > .nav {
+.row > .nav {
   width: calc(100% / 5);
   display: flex;
   margin-bottom: 20px;
 }
 
-ul > .nav > a {
+.row > .nav > a {
   cursor: pointer;
   border: 1px solid #fff;
 }
 
-ul > .nav > a:hover {
+.row > .nav > a:hover {
   box-shadow: 1px 1px 15px black;
 }
 
-ul > .nav > a > .img-box {
+.row > .img-box {
   width: 220px;
   height: 220px;
 }
 
-ul > .nav > a > .img-box > img {
+.row > .img-box > img {
   width: 220px;
   height: 220px;
 }
 
-ul > .nav > a > p {
+.row > .nav > a > p {
   text-align: left;
 }
