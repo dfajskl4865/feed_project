@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import "./Dogdry.css";
+import "./Main.css";
 import { StoreContext } from "../App";
 import { Link } from "react-router-dom";
 import Catdrydata from "./Catdry_data.js";
 
 const List = (props) => {
   return (
-    <div className="row">
-      <div className="cell nav">
-        <Link to={"/catdrydetail/" + props.index}>
-          <div className="img-box">
-            <img src={props.catdry.img} width="220px" height="220px" />
-          </div>
-          <p className="title">{props.catdry.title}</p>
-          <p className="price">{props.catdry.price}</p>
-        </Link>
-      </div>
+    <div className="cell nav">
+      <Link to={"/catdrydetail/" + props.index}>
+        <div className="img-box">
+          <img src={props.catdry.img} width="220px" height="220px" />
+        </div>
+        <p className="title">{props.catdry.title}</p>
+        <p className="price">{props.catdry.price}</p>
+      </Link>
     </div>
   );
 };
@@ -77,7 +75,7 @@ function Dry() {
           <div className="feed-bar">
             <p>고양이 / 건식 사료</p>
           </div>
-          <div className="feed-con">
+          <div className="feed-con row">
             {Catdrydata.map((products, index) => {
               return <List catdry={products} index={index} key={index} />;
             })}

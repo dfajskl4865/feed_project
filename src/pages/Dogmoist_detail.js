@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./Main.css";
 
 axios.defaults.withCredentials = true;
 
@@ -102,34 +103,60 @@ function Dogmoistdetail(props) {
               <div className="body-wrap">
                 <div className="row">
                   <div className="imgbox cell">
-                    <img src={props.dogmoist[id].img} width="80%" />
+                    <img src={props.dogmoist[id].img} width="50%" />
                   </div>
                   <div className="textbox cell">
-                    <p>{props.dogmoist[id].title}</p>
-                    <p>{props.dogmoist[id].price}</p>
-                    <button>
-                      <Link to={props.dogmoist[id].site}>주문하기</Link>
+                    <p className="detail-title">{props.dogmoist[id].title}</p>
+                    <p className="detail-price">{props.dogmoist[id].price}</p>
+                    <button
+                      className="buy-btn"
+                      onClick={() => {
+                        window.location.href = props.dogmoist[id].site;
+                      }}
+                    >
+                      주문하기
                     </button>
                   </div>
                 </div>
-                <div className="reply">
+                <div className="from">
+                  <div className="reply">
+                    <p>댓글</p>
+                  </div>
                   {reply.length > 0 &&
                     reply.map((item, index) => {
                       return (
-                        <tr key={index}>
-                          <td>{item.nickname}</td>
-                          <td>{item.body}</td>
-                        </tr>
+                        <table key={index}>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div className="nickname-box">
+                                  {item.nickname}
+                                </div>
+                              </td>
+                              <td>
+                                <div className="body-box">{item.body}</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       );
                     })}
                 </div>
 
-                <form className="reply-form">
-                  <textarea onChange={댓글정보저장}></textarea>
-                  <button className="blue-button" onClick={댓글쓰기}>
-                    댓글쓰기
-                  </button>
-                </form>
+                <div className="reply-form">
+                  <div className="text-box">
+                    <textarea
+                      className="reply-body"
+                      onChange={댓글정보저장}
+                      placeholder="댓글을 입력해주세요"
+                    ></textarea>
+                  </div>
+                  <div className="btn-box">
+                    <button className="button" onClick={댓글쓰기}>
+                      댓글쓰기
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

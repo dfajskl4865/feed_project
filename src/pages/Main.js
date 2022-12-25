@@ -50,14 +50,6 @@ function Main() {
           </ul>
         </div>
       </div>
-      <div className="con">
-        <div className="Recommendation">
-          추천 사료
-          <div className="coni">
-            <p>이미지슬라이더</p>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

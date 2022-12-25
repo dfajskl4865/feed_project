@@ -1,7 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./Article.css";
+import "./Main.css";
+
+axios.defaults.withCredentials = true;
 
 function Sharing_article() {
   const navigation = useNavigate();
@@ -91,7 +93,13 @@ function Sharing_article() {
                 {article.length > 0 &&
                   article.map((item, index) => {
                     return (
-                      <tr key={index}>
+                      <tr
+                        key={index}
+                        onClick={() => {
+                          window.location.href =
+                            "/article/" + parseInt(index + 1);
+                        }}
+                      >
                         <td>{item.title}</td>
                         <td>{item.body}</td>
                         <td>{item.nickname}</td>
@@ -101,7 +109,7 @@ function Sharing_article() {
               </tbody>
             </table>
             <div className="btn">
-              <button className="ui-green-button" onClick={Movingwrite}>
+              <button className="ui-button" onClick={Movingwrite}>
                 글등록
               </button>
             </div>

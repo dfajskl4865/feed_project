@@ -138,13 +138,17 @@ app.post("/join", async (req, res) => {
 });
 
 app.get("/article_row", async (req, res) => {
-  const { id } = req.query;
+  const { seq } = req.query;
 
-  const reply_query = `SELECT * FROM reply WHERE article_seq = '${id}'`;
+  const query = `SELECT * FROM article WHERE seq = '${seq}'`;
 
+  const reply_query = `SELECT * FROM reply WHERE article_seq = '${seq}'`;
+
+  const article = await dbstart(query);
   const reply = await dbstart(reply_query);
 
   res.send({
+    article: article[0],
     reply: reply,
   });
 });

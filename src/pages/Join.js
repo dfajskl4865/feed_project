@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import "./join.css";
+import "./Main.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,7 @@ function Join() {
   };
 
   return (
-    <div className="con">
+    <div className="conti">
       <form action="" className="from">
         <Link to="/">
           <p className="sitename">사료커뮤니티</p>
@@ -68,7 +68,7 @@ function Join() {
             placeholder="비밀번호를 입력해주세요"
             onChange={DataChange}
           ></input>
-          <button type="button" onClick={Signup} className="joinbtn">
+          <button type="button" onClick={Signup} className="join-btn">
             회원가입
           </button>
         </div>

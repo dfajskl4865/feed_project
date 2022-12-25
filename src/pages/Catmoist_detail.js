@@ -1,12 +1,52 @@
 import React, { useState } from "react";
 import { StoreContext } from "../App";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./Main.css";
 
 function Dogdrydetail(props) {
   const { loginUser } = React.useContext(StoreContext);
 
   let { id } = useParams();
+
+  const { seq } = useParams();
+
+  const [reply, setReply] = React.useState([]);
+
+  const [replyText, setReplyText] = React.useState("");
+
+  const 게시판상세정보가져오기 = async () => {
+    await axios({
+      url: "http://localhost:4000/article_row",
+      params: {
+        seq: seq,
+      },
+    }).then((response) => {
+      setReply(response.data.reply);
+    });
+  };
+
+  React.useEffect(() => {
+    게시판상세정보가져오기();
+  }, []);
+
+  const 댓글정보저장 = (event) => {
+    setReplyText(event.target.value);
+  };
+
+  const 댓글쓰기 = async () => {
+    await axios({
+      url: "http://localhost:4000/reply",
+      method: "POST",
+      data: {
+        replyText: replyText,
+        seq: seq,
+      },
+    }).then((response) => {
+      console.log(response);
+    });
+  };
   return (
     <>
       <div className="f-head">
@@ -62,13 +102,55 @@ function Dogdrydetail(props) {
           <div className="feed-con">
             <div className="row">
               <div className="imgbox cell">
-                <img src={props.catmoist[id].img} width="80%" />
+                <img src={props.catmoist[id].img} width="50%" />
               </div>
               <div className="imgbox cell">
-                <p>{props.catmoist[id].title}</p>
-                <p>{props.catmoist[id].price}</p>
-                <button>
-                  <Link to={props.catmoist[id].site}>주문하기</Link>
+                <p className="detail-title">{props.catmoist[id].title}</p>
+                <p className="detail-price">{props.catmoist[id].price}</p>
+                <button
+                  className="buy-btn"
+                  onClick={() => {
+                    window.location.href = props.catmoist[id].site;
+                  }}
+                >
+                  주문하기
+                </button>
+              </div>
+            </div>
+            <div className="from">
+              <div className="reply">
+                <p>댓글</p>
+              </div>
+              {reply.length > 0 &&
+                reply.map((item, index) => {
+                  return (
+                    <table key={index}>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div className="nickname-box">{item.nickname}</div>
+                          </td>
+                          <td>
+                            <div className="body-box">{item.body}</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  );
+                })}
+            </div>
+
+            <div className="reply-form">
+              <div className="text-box">
+                <textarea
+                  className="reply-body"
+                  onChange={댓글정보저장}
+                  placeholder="댓글을 입력해주세요"
+                ></textarea>
+              </div>
+              <div className="btn-box">
+                <button className="button" onClick={댓글쓰기}>
+                  댓글쓰기
                 </button>
               </div>
             </div>

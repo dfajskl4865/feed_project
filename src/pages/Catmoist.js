@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import "./Dogdry.css";
+import "./Main.css";
 import { StoreContext } from "../App";
 import { Link } from "react-router-dom";
 import Catmoistdata from "./Catmoist_data.js";
 
 const List = (props) => {
   return (
-    <div className="row">
-      <div className="cell nav">
-        <Link to={"/catmoistdetail/" + props.index}>
-          <div className="img-box">
-            <img src={props.catmoist.img} width="220px" height="220px" />
-          </div>
-          <p className="title">{props.catmoist.title}</p>
-          <p className="price">{props.catmoist.price}</p>
-        </Link>
-      </div>
+    <div className="cell nav">
+      <Link to={"/catmoistdetail/" + props.index}>
+        <div className="img-box">
+          <img src={props.catmoist.img} width="220px" height="220px" />
+        </div>
+        <p className="title">{props.catmoist.title}</p>
+        <p className="price">{props.catmoist.price}</p>
+      </Link>
     </div>
   );
 };
@@ -77,7 +75,7 @@ function Moist() {
           <div className="feed-bar">
             <p>고양이 / 습식 사료</p>
           </div>
-          <div className="feed-con">
+          <div className="feed-con row">
             {Catmoistdata.map((products, index) => {
               return <List catmoist={products} index={index} key={index} />;
             })}

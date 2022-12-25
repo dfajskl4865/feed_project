@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
-import "./Login.css";
+import "./Main.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
+axios.defaults.withCredentials = true;
 
 const REST_API_KEY = "60a7b0eae81f3c34c3242c0ba90b9f88";
 
@@ -10,8 +12,6 @@ const REST_API_KEY = "60a7b0eae81f3c34c3242c0ba90b9f88";
 const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
 
 const kakaologinlink = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
-axios.defaults.withCredentials = true;
 
 function Login() {
   const navigation = useNavigate();
@@ -53,7 +53,7 @@ function Login() {
   };
 
   return (
-    <div className="con">
+    <div className="conti">
       <form action="" className="from">
         <Link to="/">
           <p className="sitename">사료커뮤니티</p>
